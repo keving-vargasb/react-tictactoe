@@ -37,6 +37,7 @@ export default class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
+          <button onClick={() => this.reset()}>Reset game</button>
         </div>
       </div>
     );
@@ -84,5 +85,16 @@ export default class Game extends React.Component {
       }
     }
     return null;
+  }
+
+  reset() {
+    this.setState({
+      history: [
+        {
+          squares: Array(9).fill(null),
+        },
+      ],
+      xIsNext: true,
+    });
   }
 }
